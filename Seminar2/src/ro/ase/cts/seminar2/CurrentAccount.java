@@ -14,21 +14,27 @@ public class CurrentAccount extends BankAccount{
 	}
 
 	@Override
-	public void deposit() {
+	public void deposit(double amount) {
+		this.balance+=amount;
+		
+	}
+
+	@Override
+	public void withdraw(double amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void withdraw() {
+	public void transfer(double amount, Account detination) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void transfer() {
-		// TODO Auto-generated method stub
-		
-	}
+	
+
+	
+
+	
 
 }
