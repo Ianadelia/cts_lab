@@ -2,26 +2,53 @@ package ro.ase.cts.seminar2;
 
 import ro.ase.cts.seminar2.exceptii.IllegalTransferException;
 import ro.ase.cts.seminar2.exceptii.InsufficientFundsException;
+import ro.ase.cts.seminar2.interfaces.Profitable;
 
-public class SavingsAccount extends BankAccount{
+public class SavingsAccount extends BankAccount implements Profitable{
 
 	
+
+	public SavingsAccount(double balance, String iban) {
+		super(balance, iban);
+		
+	}
+
+	public SavingsAccount() {
+		this.balance=0;
+		this.iban="";
+	}
+
 	@Override
 	public void deposit(double amount) {
-		// TODO Auto-generated method stub
+		this.balance += amount;
 		
 	}
 
 	@Override
 	public void withdraw(double amount) throws InsufficientFundsException {
-		// TODO Auto-generated method stub
+		if(amount <= this.balance)
+		this.balance -= amount;
 		
 	}
 
 	@Override
 	public void transfer(double amount, Account destination)
 			throws IllegalTransferException, InsufficientFundsException {
-		// TODO Auto-generated method stub
+		if(((BankAccount)destination).iban.equals(this.iban))
+		{
+			throw new IllegalTransferException("transfer ilegal!");
+		}
+		else
+		{
+			this.withdraw(amount);
+			destination.deposit(amount);
+		}
+		
+	}
+
+	@Override
+	public void addInterest(double interest) {
+		this.balance *= (1+interest/100);
 		
 	}
 

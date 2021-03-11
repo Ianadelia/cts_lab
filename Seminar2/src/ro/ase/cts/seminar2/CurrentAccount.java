@@ -8,7 +8,7 @@ public class CurrentAccount extends BankAccount{
 	public static double MAX_CREDIT=5000;
 	public CurrentAccount() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public CurrentAccount(double balance, String iban ) {
@@ -35,8 +35,8 @@ public class CurrentAccount extends BankAccount{
 	}
 
 	@Override
-	public void transfer(double amount, Account destination)throws IllegalTransferException, InsufficientFundsException {
-		// TODO Auto-generated method stub
+	public void transfer(double amount, Account destination)throws IllegalTransferException, InsufficientFundsException  {
+		
 		if(((BankAccount)destination).iban.equals(this.iban))
 		{
 			throw new IllegalTransferException("transfer ilegal!");
