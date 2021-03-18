@@ -2,9 +2,12 @@ package ro.ase.cts.seminar2;
 
 import ro.ase.cts.seminar2.exceptii.IllegalTransferException;
 import ro.ase.cts.seminar2.exceptii.InsufficientFundsException;
+import ro.ase.cts.seminar2.interfaces.Depositable;
 import ro.ase.cts.seminar2.interfaces.Profitable;
+import ro.ase.cts.seminar2.interfaces.Transferable;
+import ro.ase.cts.seminar2.interfaces.Withdrawable;
 
-public class SavingsAccount extends BankAccount implements Profitable{
+public class SavingsAccount extends BankAccount implements Profitable, Depositable, Withdrawable, Transferable {
 
 	
 
@@ -22,6 +25,7 @@ public class SavingsAccount extends BankAccount implements Profitable{
 	public void deposit(double amount) {
 		this.balance += amount;
 		
+		
 	}
 
 	@Override
@@ -32,7 +36,7 @@ public class SavingsAccount extends BankAccount implements Profitable{
 	}
 
 	@Override
-	public void transfer(double amount, Account destination)
+	public void transfer(double amount, Depositable destination)
 			throws IllegalTransferException, InsufficientFundsException {
 		if(((BankAccount)destination).iban.equals(this.iban))
 		{
@@ -41,7 +45,7 @@ public class SavingsAccount extends BankAccount implements Profitable{
 		else
 		{
 			this.withdraw(amount);
-			destination.deposit(amount);
+			((Depositable) destination).deposit(amount);
 		}
 		
 	}
