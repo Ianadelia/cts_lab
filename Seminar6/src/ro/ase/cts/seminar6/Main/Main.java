@@ -26,9 +26,14 @@ public class Main {
 						productFactory= new TechProdictFactory();
 					}
 				}
-				
-				myProduct = productFactory.makeProduct();
-				
+				System.out.println(productFactory.getCatalog());
+				userPreference=scan.nextLine();
+				try {
+					int selectedId= Integer.valueOf(userPreference);
+					myProduct = productFactory.makeProduct(selectedId);
+				} catch(NumberFormatException e) {
+					System.err.println("Selectie invalida");
+				}
 				
 				if(myProduct != null) {
 					myShoppingCart.products.add(myProduct);
