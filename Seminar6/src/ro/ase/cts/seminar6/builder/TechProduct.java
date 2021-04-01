@@ -1,4 +1,4 @@
-package ro.ase.cts.seminar5.factory;
+package ro.ase.cts.seminar6.builder;
 
 public class TechProduct implements Product{
 	String productName;
@@ -21,7 +21,8 @@ public class TechProduct implements Product{
 	
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
+		
 		return "This is a tech product";
 	}
+	
 }

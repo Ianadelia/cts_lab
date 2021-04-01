@@ -1,27 +1,20 @@
-package ro.ase.cts.seminar5.Main;
+package ro.ase.cts.seminar6.Main;
 
 import java.util.Scanner;
 
-import ro.ase.cts.seminar5.Singleton.Cart;
-import ro.ase.cts.seminar5.factory.AbstractProductFactory;
-import ro.ase.cts.seminar5.factory.OfficeProduct;
-import ro.ase.cts.seminar5.factory.Product;
-import ro.ase.cts.seminar5.factory.ProductFactory;
-import ro.ase.cts.seminar5.factory.TechProdictFactory;
-import ro.ase.cts.seminar5.factory.TechProduct;
-
+import ro.ase.cts.seminar6.Singleton.Cart;
+import ro.ase.cts.seminar6.builder.AbstractProductFactory;
+import ro.ase.cts.seminar6.builder.OfficeProduct;
+import ro.ase.cts.seminar6.builder.Product;
+import ro.ase.cts.seminar6.builder.ProductFactory;
+import ro.ase.cts.seminar6.builder.TechProdictFactory;
+import ro.ase.cts.seminar6.builder.TechProduct;
+import ro.ase.cts.seminar6.*;
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 				Cart myShoppingCart = Cart.getInstance("shopping");
-				
-				//TechProduct smartphone = new TechProduct();
-				
-				//Product smartphone = new TechProduct();
-				//Product paperClip = new OfficeProduct();
-				//myShoppingCart.products.add(smartphone);
-				//myShoppingCart.products.add(paperClip);
 				
 				Scanner scan = new Scanner(System.in);
 				System.out.println("Selectati categoria de  produse:\n tech-Produse tech \n office - Produse office");
@@ -33,12 +26,9 @@ public class Main {
 						productFactory= new TechProdictFactory();
 					}
 				}
-				//ProductFactory productFactory = new ProductFactory();
+				
 				myProduct = productFactory.makeProduct();
-				/*} else {
-					System.out.println("Optiune invalida");
-					System.out.println("Catalog produse:\n tech-Produse tech \n office - Produse office");
-				}*/
+				
 				
 				if(myProduct != null) {
 					myShoppingCart.products.add(myProduct);
