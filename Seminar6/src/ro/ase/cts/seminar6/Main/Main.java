@@ -14,39 +14,79 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-				Cart myShoppingCart = Cart.getInstance("shopping");
-				
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Selectati categoria de  produse:\n tech-Produse tech \n office - Produse office");
-				String userPreference = scan.nextLine();
-				Product myProduct = null;
-				AbstractProductFactory productFactory=null;
-				if(userPreference!=null) {
-					if(userPreference.equalsIgnoreCase("tech")) {
-						productFactory= new TechProdictFactory();
+		Cart myShoppingCart = Cart.getInstance("shopping");
+		
+		//TechProduct smartphone = new TechProduct();
+		
+		//Product smartphone = new TechProduct();
+		//Product paperClip = new OfficeProduct();
+		//myShoppingCart.products.add(smartphone);
+		//myShoppingCart.products.add(paperClip);
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Selectati categoria de produse:\n tech-Produse tech \n office - Produse office");
+		String userPreference = scan.nextLine();
+		Product myProduct = null;
+		
+		AbstractProductFactory productFactory = null;
+		
+		if(userPreference != null)
+		{
+			if(userPreference.equalsIgnoreCase("tech"))
+			{
+				productFactory = new TechProdictFactory();
+			}
+		}
+		
+		System.out.println(productFactory.getCatalog());
+		//userPreference = scan.nextLine();
+		
+		for(int i =0; i<2; i++)
+		{
+			userPreference = scan.nextLine();
+			try {
+			int selectedId = Integer.valueOf(userPreference);
+			for(Product p : myShoppingCart.products)
+			{
+				if(p instanceof TechProduct)
+				{
+					TechProduct tempProduct = (TechProduct)p;
+					
+					if(tempProduct.getId() == selectedId)
+					{
+						try {
+							myProduct =(Product) tempProduct.clone();
+						} catch (CloneNotSupportedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}else {
+						myProduct=productFactory.makeProduct(selectedId);
 					}
 				}
-				System.out.println(productFactory.getCatalog());
-				userPreference=scan.nextLine();
-				try {
-					int selectedId= Integer.valueOf(userPreference);
-					myProduct = productFactory.makeProduct(selectedId);
-				} catch(NumberFormatException e) {
-					System.err.println("Selectie invalida");
-				}
-				
-				if(myProduct != null) {
-					myShoppingCart.products.add(myProduct);
-				}
-				
-				for(Product p:myShoppingCart.products)
-				{
-					System.out.println(p.getDescription());
-				}
-				
 				
 			}
+			
+			
+			myProduct = productFactory.makeProduct(selectedId);
+			
+			}catch(NumberFormatException e){
+				System.err.println("selectie invalida");
+			}
+			
+			
+			if(myProduct != null) {
+				myShoppingCart.products.add(myProduct);
+			}
+		
+		}
+		
+		for(Product p:myShoppingCart.products)
+		{
+			System.out.println(p.getDescription());
+		}
+		
 		
 	}
 
-
+}
