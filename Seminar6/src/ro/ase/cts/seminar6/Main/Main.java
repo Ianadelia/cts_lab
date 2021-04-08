@@ -26,7 +26,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Selectati categoria de produse:\n tech-Produse tech \n office - Produse office");
 		String userPreference = scan.nextLine();
-		Product myProduct = null;
+		Product myProduct=null;
 		
 		AbstractProductFactory productFactory = null;
 		
