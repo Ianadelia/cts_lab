@@ -27,7 +27,8 @@ public class ProductCatalog extends CatalogComponent{
 			products.remove(i);
 		}
 	}
-	}
+	
+}
 
 	@Override
 	public String getName() {
@@ -36,8 +37,19 @@ public class ProductCatalog extends CatalogComponent{
 
 	@Override
 	public double getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new UnsupportedOperationException("Can't get price");
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder= new StringBuilder();
+		builder.append(this.name).append(":\n");
+		for(CatalogComponent comp: this.products) {
+			builder.append(comp.toString());
+			
+		}
+		return builder.toString();
+	}
+	
 
 }
