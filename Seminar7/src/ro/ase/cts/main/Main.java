@@ -9,7 +9,7 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		ArrayList<MovableImperial> cars = new ArrayList<MoveableImperial>();
+		ArrayList<MovableImperial> cars = new ArrayList<MovableImperial>();
 		cars.add(new AmericanCar("Ford"));
 		cars.add(new AmericanCar("Chevrolet"));
 		cars.add(new AmericanCar("Dodge"));
