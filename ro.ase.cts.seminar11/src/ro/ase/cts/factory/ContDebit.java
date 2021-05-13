@@ -17,4 +17,10 @@ public class ContDebit implements ContBancar{
 		System.out.println(suma +"de lei a fost adaugata in contul curent -> Debit");
 	}
 
+	@Override
+	public String toString() {
+		return "ContDebit [total=" + total + "]";
+	}
+	
+
 }

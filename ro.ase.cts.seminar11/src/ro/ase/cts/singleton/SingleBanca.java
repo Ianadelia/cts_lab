@@ -23,7 +23,7 @@ public class SingleBanca {
 					return INSTANCE;
 		}
 	
-	public ContBancar createInstance(String tipCont) {
+	public static ContBancar createInstance(String tipCont) {
 		ContBancar contBancar;
 		switch(tipCont) {
 		case "CREDIT": 
