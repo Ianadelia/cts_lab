@@ -8,7 +8,7 @@ public class SingleBanca {
 
 	private String denumire;
 	private String adresa;
-	private static int NRCONT;
+	public static int NRCONT;
 	
 	private static SingleBanca INSTANCE;
 	

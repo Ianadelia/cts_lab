@@ -1,5 +1,7 @@
 package ro.ase.cts.Main1;
 
+import ro.ase.cts.adapter.AdapterCont;
+import ro.ase.cts.adapter.BankAccount;
 import ro.ase.cts.factory.ContBancar;
 import ro.ase.cts.singleton.SingleBanca;
 
