@@ -10,6 +10,8 @@ import ro.ae.cts.seminar12.observer.NotificationInterface;
 import ro.ae.cts.seminar12.observer.SmsNotification;
 import ro.ase.cts.Memento.CharacterMemento;
 import ro.ase.cts.Memento.GameCharacter;
+import ro.ase.cts.seminar12.template.DecimalFormatter;
+import ro.ase.cts.seminar12.template.HexFormatter;
 
 public class Main {
 
@@ -46,6 +48,13 @@ public static void main(String[] args) {
 		System.out.println("Character hitpoints: "+myCharacter.getHitPoints());
 		myCharacter.setMemento(saveList.get(0));
 		System.out.println("Character hitpoints: "+myCharacter.getHitPoints());
+		
+		
+		System.out.println("-------------------------------------");
+		DecimalFormatter decimalFormatter=new DecimalFormatter();
+		decimalFormatter.displayOutput(10);
+		HexFormatter hexFormatter=new HexFormatter();
+		hexFormatter.displayOutput(10);
 	}
 
 }
