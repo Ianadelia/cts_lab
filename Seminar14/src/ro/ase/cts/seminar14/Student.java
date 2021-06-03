@@ -1,6 +1,6 @@
 package ro.ase.cts.seminar14;
 
-public class Student {
+public class Student extends StudentAbstract{
 
 	/*constraints
 	 * nume - [3-255] caractere,
