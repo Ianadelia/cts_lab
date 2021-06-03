@@ -14,6 +14,7 @@ public class DepartamentSecretariat {
 		this.studenti = studenti;
 	}
 	
+	
 	float calculBursa(int studentIndex) {
 		return 0;
 	}
