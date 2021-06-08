@@ -1,6 +1,9 @@
-package ro.ase.cts.seminar14;
+package ro.ase.cts.seminar14.unittesting;
 
 import java.nio.file.attribute.FileOwnerAttributeView;
+
+import ro.ase.cts.seminar14.StudentAbstract;
+import ro.ase.cts.seminar14.StudentExceptionWrongValue;
 
 public class StudentStub extends StudentAbstract{
 
